@@ -1,0 +1,203 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9767DCB2D8D4C92C6A7ECA82 /* RFVisionProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0653194D9C3C2C133842DAA1 /* RFVisionProApp.swift */; };
+		3907648B68D397A0DE80BE68 /* NetworkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5DE127127B48912693C273 /* NetworkModels.swift */; };
+		382ED3ACF16625023EB949A7 /* LocationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C4B7F98487BCC2558E591A /* LocationPermission.swift */; };
+		BF11445AEB49A3804A5DBED0 /* MeasurementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE772A130CF97BF8D8C217 /* MeasurementStore.swift */; };
+		33A78D495D45D69C7DC4FE40 /* NetworkProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA98E1162677413F42BE3C /* NetworkProbe.swift */; };
+		42B22168126EA868394D8393 /* WirelessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EB451B70AAC2BC004184EE /* WirelessMonitor.swift */; };
+		34E4178A6137062D6664F703 /* IPAddressReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1195297C4ECD4C13CE5AEE04 /* IPAddressReader.swift */; };
+		899E4A7159C1F6B712C5287B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133A9D33EF585B73387932E1 /* DashboardView.swift */; };
+		7F296C7C3014898690FB71DD /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C01B86FC867E29D97C4759 /* HistoryView.swift */; };
+		C857E4091CA08560F422DC65 /* MacWiFiScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F17445941EB4576D7EA854 /* MacWiFiScanView.swift */; };
+		2A21AD5D4AAC11BCCB907BB3 /* MetricCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5F3A2A84A2732A1E362A45 /* MetricCard.swift */; };
+		CA5F3355793E49D719E33DC3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9354F1F177E2143D46293A /* RootView.swift */; };
+		C08FFE236A32500D1B02FA37 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01752CCF9349B35C230777EC /* SettingsView.swift */; };
+		5A710B8B6429CD6F68E76AE0 /* ShareFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B06E35CBA26EDE8E12E3E72 /* ShareFileView.swift */; };
+		38A51D4B5119B1A616D431A8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0823ED698D6F8A0ADDFC6E70 /* TestView.swift */; };
+		A4B5C6D7E8F90123456789AB /* HybridSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C5D6E7F890123456789ABC /* HybridSurveyView.swift */; };
+		5034EB299B2A2E5622389E83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2C0A21CDC5C8BF39A5B0E98 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0653194D9C3C2C133842DAA1 /* RFVisionProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/App/RFVisionProApp.swift"; sourceTree = "<group>"; };
+		FE5DE127127B48912693C273 /* NetworkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Models/NetworkModels.swift"; sourceTree = "<group>"; };
+		00C4B7F98487BCC2558E591A /* LocationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Services/LocationPermission.swift"; sourceTree = "<group>"; };
+		15DE772A130CF97BF8D8C217 /* MeasurementStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Services/MeasurementStore.swift"; sourceTree = "<group>"; };
+		A1DA98E1162677413F42BE3C /* NetworkProbe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Services/NetworkProbe.swift"; sourceTree = "<group>"; };
+		A1EB451B70AAC2BC004184EE /* WirelessMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Services/WirelessMonitor.swift"; sourceTree = "<group>"; };
+		1195297C4ECD4C13CE5AEE04 /* IPAddressReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Utilities/IPAddressReader.swift"; sourceTree = "<group>"; };
+		133A9D33EF585B73387932E1 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Views/DashboardView.swift"; sourceTree = "<group>"; };
+		38C01B86FC867E29D97C4759 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Views/HistoryView.swift"; sourceTree = "<group>"; };
+		96F17445941EB4576D7EA854 /* MacWiFiScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Views/MacWiFiScanView.swift"; sourceTree = "<group>"; };
+		3D5F3A2A84A2732A1E362A45 /* MetricCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Views/MetricCard.swift"; sourceTree = "<group>"; };
+		9D9354F1F177E2143D46293A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Views/RootView.swift"; sourceTree = "<group>"; };
+		01752CCF9349B35C230777EC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Views/SettingsView.swift"; sourceTree = "<group>"; };
+		8B06E35CBA26EDE8E12E3E72 /* ShareFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Views/ShareFileView.swift"; sourceTree = "<group>"; };
+		0823ED698D6F8A0ADDFC6E70 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Views/TestView.swift"; sourceTree = "<group>"; };
+		B4C5D6E7F890123456789ABC /* HybridSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RFVisionPro/Views/HybridSurveyView.swift"; sourceTree = "<group>"; };
+		B2C0A21CDC5C8BF39A5B0E98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = RFVisionPro/Assets.xcassets; sourceTree = "<group>"; };
+		82FB424B9C64A1CAAB9DCF83 /* RFVisionEnterprise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RFVisionEnterprise.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EBD8DA605F8E0F0A01695FB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAB137290756B1128BA235F6 = {
+			isa = PBXGroup;
+			children = (
+				0653194D9C3C2C133842DAA1 /* RFVisionProApp.swift */,
+				FE5DE127127B48912693C273 /* NetworkModels.swift */,
+				00C4B7F98487BCC2558E591A /* LocationPermission.swift */,
+				15DE772A130CF97BF8D8C217 /* MeasurementStore.swift */,
+				A1DA98E1162677413F42BE3C /* NetworkProbe.swift */,
+				A1EB451B70AAC2BC004184EE /* WirelessMonitor.swift */,
+				1195297C4ECD4C13CE5AEE04 /* IPAddressReader.swift */,
+				133A9D33EF585B73387932E1 /* DashboardView.swift */,
+				38C01B86FC867E29D97C4759 /* HistoryView.swift */,
+				96F17445941EB4576D7EA854 /* MacWiFiScanView.swift */,
+				3D5F3A2A84A2732A1E362A45 /* MetricCard.swift */,
+				9D9354F1F177E2143D46293A /* RootView.swift */,
+				01752CCF9349B35C230777EC /* SettingsView.swift */,
+				8B06E35CBA26EDE8E12E3E72 /* ShareFileView.swift */,
+				0823ED698D6F8A0ADDFC6E70 /* TestView.swift */,
+				B4C5D6E7F890123456789ABC /* HybridSurveyView.swift */,
+				B2C0A21CDC5C8BF39A5B0E98 /* Assets.xcassets */,
+				5785D27AB763BFC63C0469A8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5785D27AB763BFC63C0469A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (82FB424B9C64A1CAAB9DCF83 /* RFVisionEnterprise.app */,);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9E91A4ABA8BEBBCCF8A4D6B9 /* RFVisionPro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4ACE86BE874A9931BD154813;
+			buildPhases = (6C7ABCDF95A01D4FCB6AC4E0, EBD8DA605F8E0F0A01695FB4, 8902E07574E14A06485E271D);
+			buildRules = ();
+			dependencies = ();
+			name = RFVisionPro;
+			productName = RFVisionPro;
+			productReference = 82FB424B9C64A1CAAB9DCF83;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95ED02C3982C0FBF429718E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 1600; LastUpgradeCheck = 1600; TargetAttributes = {9E91A4ABA8BEBBCCF8A4D6B9 = {CreatedOnToolsVersion = 16.0; }; }; };
+			buildConfigurationList = 54AE308E08D3AA1FCA38BED9;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base);
+			mainGroup = EAB137290756B1128BA235F6;
+			productRefGroup = 5785D27AB763BFC63C0469A8;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (9E91A4ABA8BEBBCCF8A4D6B9);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8902E07574E14A06485E271D /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (5034EB299B2A2E5622389E83); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6C7ABCDF95A01D4FCB6AC4E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9767DCB2D8D4C92C6A7ECA82 /* RFVisionProApp.swift in Sources */,
+				3907648B68D397A0DE80BE68 /* NetworkModels.swift in Sources */,
+				382ED3ACF16625023EB949A7 /* LocationPermission.swift in Sources */,
+				BF11445AEB49A3804A5DBED0 /* MeasurementStore.swift in Sources */,
+				33A78D495D45D69C7DC4FE40 /* NetworkProbe.swift in Sources */,
+				42B22168126EA868394D8393 /* WirelessMonitor.swift in Sources */,
+				34E4178A6137062D6664F703 /* IPAddressReader.swift in Sources */,
+				899E4A7159C1F6B712C5287B /* DashboardView.swift in Sources */,
+				7F296C7C3014898690FB71DD /* HistoryView.swift in Sources */,
+				C857E4091CA08560F422DC65 /* MacWiFiScanView.swift in Sources */,
+				2A21AD5D4AAC11BCCB907BB3 /* MetricCard.swift in Sources */,
+				CA5F3355793E49D719E33DC3 /* RootView.swift in Sources */,
+				C08FFE236A32500D1B02FA37 /* SettingsView.swift in Sources */,
+				5A710B8B6429CD6F68E76AE0 /* ShareFileView.swift in Sources */,
+				38A51D4B5119B1A616D431A8 /* TestView.swift in Sources */,
+				A4B5C6D7E8F90123456789AB /* HybridSurveyView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CFEE1EC639DDE98DE0CD4CA1 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = dwarf; ENABLE_TESTABILITY = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_OPTIMIZATION_LEVEL = 0; ONLY_ACTIVE_ARCH = YES; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+		1363AAF539D3CC246D33C7F0 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; GCC_C_LANGUAGE_STANDARD = gnu17; SWIFT_COMPILATION_MODE = wholemodule; }; name = Release; };
+		9B3618B60DDAAA7FC42299A6 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {
+			ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+			ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+			CODE_SIGN_ENTITLEMENTS = RFVisionPro/RFVisionPro.entitlements;
+			CODE_SIGN_STYLE = Automatic;
+			CURRENT_PROJECT_VERSION = 1;
+			DEVELOPMENT_TEAM = "";
+			GENERATE_INFOPLIST_FILE = NO;
+			INFOPLIST_FILE = RFVisionPro/Resources/Info.plist;
+			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+			MACOSX_DEPLOYMENT_TARGET = 14.0;
+			MARKETING_VERSION = 1.4.0;
+			PRODUCT_BUNDLE_IDENTIFIER = com.resolve.RFVisionEnterprise;
+			PRODUCT_NAME = RFVisionEnterprise;
+			SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+			SUPPORTS_MACCATALYST = NO;
+			SWIFT_EMIT_LOC_STRINGS = YES;
+			SWIFT_VERSION = 5.0;
+			TARGETED_DEVICE_FAMILY = "1,2";
+		}; name = Debug; };
+		EA4C4D4DEE1182783281CC09 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {
+			ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+			ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+			CODE_SIGN_ENTITLEMENTS = RFVisionPro/RFVisionPro.entitlements;
+			CODE_SIGN_STYLE = Automatic;
+			CURRENT_PROJECT_VERSION = 1;
+			DEVELOPMENT_TEAM = "";
+			GENERATE_INFOPLIST_FILE = NO;
+			INFOPLIST_FILE = RFVisionPro/Resources/Info.plist;
+			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+			MACOSX_DEPLOYMENT_TARGET = 14.0;
+			MARKETING_VERSION = 1.4.0;
+			PRODUCT_BUNDLE_IDENTIFIER = com.resolve.RFVisionEnterprise;
+			PRODUCT_NAME = RFVisionEnterprise;
+			SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+			SUPPORTS_MACCATALYST = NO;
+			SWIFT_EMIT_LOC_STRINGS = YES;
+			SWIFT_VERSION = 5.0;
+			TARGETED_DEVICE_FAMILY = "1,2";
+		}; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		54AE308E08D3AA1FCA38BED9 = {isa = XCConfigurationList; buildConfigurations = (CFEE1EC639DDE98DE0CD4CA1, 1363AAF539D3CC246D33C7F0); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		4ACE86BE874A9931BD154813 = {isa = XCConfigurationList; buildConfigurations = (9B3618B60DDAAA7FC42299A6, EA4C4D4DEE1182783281CC09); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = 95ED02C3982C0FBF429718E3 /* Project object */;
+}

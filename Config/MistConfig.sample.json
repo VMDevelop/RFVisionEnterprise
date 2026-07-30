@@ -1,0 +1,6 @@
+{
+  "base_url": "https://api.mist.com",
+  "organization_id": "REPLACE_WITH_ORG_ID",
+  "api_token": "REPLACE_WITH_API_TOKEN",
+  "site_id": "OPTIONAL_DEFAULT_SITE_ID"
+}

@@ -1,0 +1,36 @@
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Secrets / local configuration
+.env
+.env.*
+!.env.example
+Config/MistConfig.json
+Config/*.private.json
+*.p12
+*.mobileprovision
+
+# Reports and exports
+Artifacts/
+Reports/Generated/
+*.xcresult
