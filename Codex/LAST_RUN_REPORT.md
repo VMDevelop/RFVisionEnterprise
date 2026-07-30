@@ -4,118 +4,147 @@
 
 - Date: 2026-07-31 (Asia/Bangkok)
 - Xcode: 26.6 (build 17F113)
-- Branch before commit: `main`
-- Starting commit: `7ae3232 chore: bootstrap RF Vision Enterprise baseline`
-- Active work order: `Codex/WORK_ORDER_001_FOUNDATION_BUILD.md`
-- Final project: `RFVisionEnterprise.xcodeproj`
-- Final app target and shared scheme: `RFVisionEnterprise`
-- Final test target: `RFVisionEnterpriseTests`
-- Bundle identifier: unchanged at `com.resolve.RFVisionEnterprise`
+- Branch: `feature/wo-002-domain-provider-architecture`
+- Starting commit: `a9faa10`
+- Active work order: `Codex/WORK_ORDER_002_DOMAIN_PROVIDER_ARCHITECTURE.md`
+- Project: `RFVisionEnterprise.xcodeproj`
+- App target and shared scheme: `RFVisionEnterprise`
+- Test target: `RFVisionEnterpriseTests`
+- Signing-independent verification: `CODE_SIGNING_ALLOWED=NO`
 
-## Repository and project changes
+## Work completed
 
-- Renamed the project, source root, app entry point, target, product, and shared scheme from legacy `RFVisionPro` naming to `RFVisionEnterprise`.
-- Added the shared command-line scheme at `RFVisionEnterprise.xcodeproj/xcshareddata/xcschemes/RFVisionEnterprise.xcscheme`.
-- Added the cross-platform `RFVisionEnterpriseTests` unit-test target and one deterministic XCTest smoke test.
-- Kept the only live `IPAddressReader` implementation at `RFVisionEnterprise/Utilities/IPAddressReader.swift`; repository audit found exactly one declaration and one source membership entry.
-- Removed the dead legacy `WirelessInspector.entitlements`.
-- Split entitlements by platform: Wi-Fi information on iOS and App Sandbox/network client on macOS.
-- Validated iOS 17.0 and macOS 14.0 deployment targets, app/test source membership, asset resources, generated product Info.plists, and signing-independent builds.
-- Made Info.plist versions derive from `MARKETING_VERSION` and `CURRENT_PROJECT_VERSION`, and replaced legacy product wording in privacy strings.
-- Updated `README.md`, `START_HERE.md`, and `Scripts/verify-build.sh` for the normalized project and verified commands.
-- No product feature was added. No third-party dependency was added.
+- Added vendor-neutral, Codable and Sendable project, floor-plan, survey-session,
+  survey-point, measurement, identity, note, and batch models.
+- Added General, vendor-assisted, and Hybrid survey modes.
+- Added async provider protocols and capability aggregation for local, active
+  diagnostic, native RF, network identity, and vendor wireless providers.
+- Kept vendor identity out of `RFProject`, `SurveySession`, `SurveyPoint`, and
+  `MeasurementValue`. The core source model uses a generic `vendorCloud`
+  category and an opaque provider ID; the mock adapter alone owns the
+  `mistCloud` identifier.
+- Added local-device and mock Mist providers. The mock values are explicitly
+  development-only and do not represent live RF measurements.
+- Added schema-versioned local JSON repositories with atomic writes. No API
+  token, credential, organization ID, or site ID is modeled or persisted.
+- Added a minimal development screen for project mode selection, provider
+  capabilities, mock point capture, persistence, and reload.
+- Removed the obsolete survey/project/point models containing Mist-specific
+  identifiers from `NetworkModels.swift`.
+- Expanded the smoke-test target to nine domain, provider, persistence, schema,
+  and vendor-decoupling tests.
+- Added the missing app-target dependency and host linkage for the unit-test
+  target.
+- No production Mist client, CoreWLAN implementation, survey canvas, heatmap,
+  settings workflow, dashboard, third-party dependency, or WO-003 feature was
+  added.
 
-## Discovery and baseline commands
-
-```bash
-xcodebuild -version
-```
-
-Result: `Xcode 26.6`, build `17F113`.
-
-```bash
-xcodebuild -list -project RFVisionPro.xcodeproj
-xcodebuild -showdestinations -project RFVisionPro.xcodeproj -scheme RFVisionPro
-```
-
-Result: baseline project `RFVisionPro`, target `RFVisionPro`, scheme `RFVisionPro`; destinations included generic iOS Simulator and arm64 macOS (`My Mac`).
-
-```bash
-xcodebuild -project RFVisionPro.xcodeproj -scheme RFVisionPro -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath /tmp/RFVisionEnterprise-baseline-ios CODE_SIGNING_ALLOWED=NO build
-```
-
-Result: failed in the managed sandbox at `CompileAssetCatalogVariant` because CoreSimulatorService was inaccessible and reported no available simulator runtimes. No Swift source error was reported.
-
-```bash
-xcodebuild -project RFVisionPro.xcodeproj -scheme RFVisionPro -configuration Debug -destination 'platform=macOS' -derivedDataPath /tmp/RFVisionEnterprise-baseline-macos CODE_SIGNING_ALLOWED=NO build
-```
-
-Result: `BUILD SUCCEEDED`.
-
-## Final validation commands and results
-
-```bash
-plutil -lint RFVisionEnterprise/Resources/Info.plist RFVisionEnterprise/RFVisionEnterprise.entitlements RFVisionEnterprise/RFVisionEnterpriseMac.entitlements
-```
-
-Result: all three property lists passed.
+## Discovery commands
 
 ```bash
 xcodebuild -list -project RFVisionEnterprise.xcodeproj
 ```
 
-Result: targets `RFVisionEnterprise` and `RFVisionEnterpriseTests`; shared scheme `RFVisionEnterprise`.
+Result: targets `RFVisionEnterprise` and `RFVisionEnterpriseTests`;
+configurations `Debug` and `Release`; scheme `RFVisionEnterprise`.
 
 ```bash
-xcodebuild -project RFVisionEnterprise.xcodeproj -scheme RFVisionEnterprise -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath /tmp/RFVisionEnterprise-final-ios CODE_SIGNING_ALLOWED=NO build
+xcodebuild -project RFVisionEnterprise.xcodeproj -scheme RFVisionEnterprise -showdestinations
 ```
 
-Result: `BUILD SUCCEEDED` after allowing Xcode access to CoreSimulatorService. Built arm64 and x86_64 simulator slices against iPhoneSimulator 26.5 SDK with iOS 17.0 minimum deployment.
+Result: available destinations included arm64 macOS, generic iOS Simulator, and
+an iPhone 17 simulator running iOS 26.5 with ID
+`02E86AB6-9BB4-43B8-80A0-5FAE54937887`.
+
+## Initial failures and fixes
+
+The first macOS test invocation failed before tests ran:
+
+```text
+unable to resolve module dependency: 'RFVisionEnterprise'
+```
+
+Cause and fix: `RFVisionEnterpriseTests` had no target dependency on the app
+target. Added the explicit dependency.
+
+The next test link failed with undefined `RFVisionEnterprise` symbols.
+
+Cause and fix: the application-hosted unit-test target lacked `TEST_HOST` and
+`BUNDLE_LOADER`. Added both settings to Debug and Release test configurations.
+
+The next test compile failed because `await` was used inside XCTest assertion
+autoclosures.
+
+Cause and fix: awaited the actor repository calls into local values before
+asserting.
+
+The first completed test run reported two persistence equality failures caused
+by subsecond `Date()` precision while the foundation JSON format uses ISO-8601.
+
+Cause and fix: made the persistence round-trip fixture use a deterministic
+whole-second timestamp. No production data was weakened or discarded.
+
+## Final build and test commands
 
 ```bash
-xcodebuild -project RFVisionEnterprise.xcodeproj -scheme RFVisionEnterprise -configuration Debug -destination 'platform=macOS,arch=arm64' -derivedDataPath /tmp/RFVisionEnterprise-final-macos CODE_SIGNING_ALLOWED=NO build
+xcodebuild -project RFVisionEnterprise.xcodeproj -scheme RFVisionEnterprise -configuration Debug -destination 'platform=macOS,arch=arm64' -derivedDataPath /tmp/RFVisionEnterprise-wo002-macos CODE_SIGNING_ALLOWED=NO build
 ```
 
-Result: `BUILD SUCCEEDED` against macOS 26.5 SDK with macOS 14.0 minimum deployment.
+Result: `BUILD SUCCEEDED` against the macOS 26.5 SDK with macOS 14.0 minimum
+deployment.
 
 ```bash
-xcodebuild -project RFVisionEnterprise.xcodeproj -scheme RFVisionEnterprise -configuration Debug -destination 'platform=macOS,arch=arm64' -derivedDataPath /tmp/RFVisionEnterprise-final-tests-escalated CODE_SIGNING_ALLOWED=NO test
+xcodebuild -project RFVisionEnterprise.xcodeproj -scheme RFVisionEnterprise -configuration Debug -destination 'platform=macOS,arch=arm64' -derivedDataPath /tmp/RFVisionEnterprise-wo002-macos-tests CODE_SIGNING_ALLOWED=NO test
 ```
 
-Result: `TEST SUCCEEDED`; 1 test executed, 0 failures.
-
-An earlier sandboxed invocation of the same test command with DerivedData at `/tmp/RFVisionEnterprise-final-tests` compiled and linked both targets but could not connect to `com.apple.testmanagerd.control`. Direct execution confirmed the compiled test passed:
+Result: `TEST SUCCEEDED`; 9 tests executed, 0 failures.
 
 ```bash
-xcrun xctest /tmp/RFVisionEnterprise-final-tests/Build/Products/Debug/RFVisionEnterpriseTests.xctest
+xcodebuild -project RFVisionEnterprise.xcodeproj -scheme RFVisionEnterprise -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath /tmp/RFVisionEnterprise-wo002-ios-build CODE_SIGNING_ALLOWED=NO build
 ```
 
-Result: 1 test executed, 0 failures. The final unrestricted `xcodebuild test` result above is the authoritative test gate.
+Result: `BUILD SUCCEEDED`; arm64 and x86_64 simulator slices built against the
+iPhoneSimulator 26.5 SDK with iOS 17.0 minimum deployment.
 
-## Warnings and environment notes
+```bash
+xcodebuild -project RFVisionEnterprise.xcodeproj -scheme RFVisionEnterprise -configuration Debug -destination 'platform=iOS Simulator,id=02E86AB6-9BB4-43B8-80A0-5FAE54937887' -derivedDataPath /tmp/RFVisionEnterprise-wo002-ios-tests CODE_SIGNING_ALLOWED=NO test
+```
 
-- Xcode emitted `Metadata extraction skipped. No AppIntents.framework dependency found.` This is an Xcode tool warning for an app with no App Intents dependency and does not identify a source defect.
-- Sandboxed discovery emitted CoreSimulatorService, DerivedData permission, distributed-notification, and testmanager service errors. Re-running the required build/test gates with approved Xcode service access succeeded.
-- Xcode reported malformed provisioning profiles installed in the user profile directory during discovery. Signing was disabled for these verification builds; no provisioning profile or certificate is part of the repository.
+Result: `TEST SUCCEEDED` on iPhone 17 / iOS 26.5; 9 tests executed, 0 failures.
 
 ## Final audits
 
 ```bash
 git diff --check
-rg -n '^enum IPAddressReader|^struct IPAddressReader|^class IPAddressReader' . -g '*.swift'
-find . -path './.git' -prune -o \( -name DerivedData -o -name build -o -name '*.xcresult' -o -name '*.mobileprovision' -o -name '*.p12' \) -print
+rg -n -i 'mist|siteid|clientmac|organizationid|token|secret' RFVisionEnterprise/Domain/SurveyDomain.swift
+rg -n 'RFProject|SurveySession|SurveyPoint|MeasurementValue' RFVisionEnterprise/Models RFVisionEnterprise/Domain
+plutil -lint RFVisionEnterprise/Resources/Info.plist RFVisionEnterprise/RFVisionEnterprise.entitlements RFVisionEnterprise/RFVisionEnterpriseMac.entitlements
 ```
 
 Results:
 
 - No whitespace errors.
-- Exactly one `IPAddressReader` declaration.
-- No generated build products, result bundles, provisioning profiles, or certificates in the repository.
+- No Mist name, vendor site/client identifier, organization identifier, token,
+  or secret occurs in the core domain model file.
+- Exactly one live definition exists for each new core project/session/point/
+  measurement type; the old conflicting definitions were removed.
+- Info.plist and both entitlement files are valid property lists.
 
-## Remaining blockers
+## Limitations and warnings
 
-None for Work Order 001.
+- The local-device and Mist providers are mocks used only to demonstrate the
+  architecture. They do not collect or fabricate live RF state.
+- Real Mist API calls, credential storage, CoreWLAN collection, and production
+  survey UI remain intentionally out of scope.
+- Xcode emitted `Metadata extraction skipped. No AppIntents.framework
+  dependency found.` The project does not use App Intents; this is an Xcode
+  metadata-tool warning, not a source-code warning.
+- The simulator emitted non-failing Core Animation launch-measurement logging.
+- Builds disable signing deliberately so source validation is independent of
+  local certificates and provisioning. No signing failure occurred.
 
-## Recommended next work
+## Acceptance outcome
 
-Begin the next owner-approved work order only after review of this foundation commit. Do not add product features under Work Order 001.
+All WO-002 acceptance criteria passed. The final commit hash is reported in the
+handoff because a commit cannot contain its own hash without changing that
+hash.
