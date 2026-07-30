@@ -24,7 +24,7 @@ pwd
 ls -la
 ```
 
-ควรเห็น `AGENTS.md`, `README.md`, `Codex/`, `Documents/`, `Scripts/`, `RFVisionPro.xcodeproj` และ `RFVisionPro/`
+ควรเห็น `AGENTS.md`, `README.md`, `Codex/`, `Documents/`, `Scripts/`, `RFVisionEnterprise.xcodeproj` และ `RFVisionEnterprise/`
 
 ## เริ่ม Git repository
 

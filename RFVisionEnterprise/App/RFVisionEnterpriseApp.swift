@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct RFVisionProApp: App {
+struct RFVisionEnterpriseApp: App {
     @StateObject private var monitor = WirelessMonitor()
     @StateObject private var store = MeasurementStore()
     @StateObject private var location = LocationPermission()

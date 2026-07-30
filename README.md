@@ -2,9 +2,18 @@
 
 Cross-platform SwiftUI foundation for wireless inspection, survey, diagnostics, and Mist-assisted RF visibility.
 
-## Current status
+## Build and test
 
-This repository is a handoff baseline for Codex. Its first task is to validate and normalize the project using Xcode on macOS. Do not treat the current baseline as a production or TestFlight-ready build until `Codex/WORK_ORDER_001_FOUNDATION_BUILD.md` is complete.
+Use the shared `RFVisionEnterprise` scheme with signing disabled for local verification:
+
+```bash
+xcodebuild -list -project RFVisionEnterprise.xcodeproj
+xcodebuild -project RFVisionEnterprise.xcodeproj -scheme RFVisionEnterprise -configuration Debug -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+xcodebuild -project RFVisionEnterprise.xcodeproj -scheme RFVisionEnterprise -configuration Debug -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO build
+xcodebuild -project RFVisionEnterprise.xcodeproj -scheme RFVisionEnterprise -configuration Debug -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO test
+```
+
+An installed iOS Simulator runtime is required for iOS asset compilation and simulator-hosted tests. See `Codex/LAST_RUN_REPORT.md` for the last verified destinations and results.
 
 ## Quick start
 
